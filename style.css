@@ -6,6 +6,10 @@ body{
     color: #99a5c3;
 }
 
+html {
+    scroll-padding-top: 90px;
+}
+
 nav ul{
     display: flex;   
     justify-content: space-evenly;
@@ -27,10 +31,63 @@ nav a:hover{
 
 }
 
-nav{
+.nav-container {
+    position: relative;
+    width: 100%;
+}
+
+nav {
     background-color: #0D1821;
-    padding:  20px;
-    border-radius: 10px
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+nav.is-scrolled {
+    position: fixed;
+    top: 10px;
+    left: 0.7%;
+    right: 0.7%;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+}
+
+nav.is-scrolled.dropdown-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-toggle-handle {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    color: #99a5c3;
+    padding: 8px 16px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    user-select: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-toggle-handle.visible {
+    transform: translateX(-50%) translateY(0);
+}
+
+.down-arrow-icon {
+    transition: transform 0.3s ease;
+}
+
+.nav-toggle-handle.active .down-arrow-icon {
+    transform: rotate(180deg);
 }
 
 header section{
@@ -109,10 +166,6 @@ header img{
     border-radius: 20px;
 }
 
-.scroll-box::-webkit-scrollbar-thumb:hover {
-    background: #5674be;
-}
-
 .scroll-box {
     display: flex;
     gap: 15px;
@@ -120,6 +173,7 @@ header img{
     overflow-y: hidden;
     width: clamp(150px, 97%, 97%);
     padding: 10px;
+    cursor: grab;
 }
 
 .div-card{
@@ -128,15 +182,33 @@ header img{
     padding: 15px;
     color: #8290b2;
     border-radius: 10px;
+    user-select: none;
 }
 
-.future-projects-career-header-text{
+.career-header-text{
     padding-left: 20px;
     padding: 20px;
     margin-top: 10px;
     border-radius: 10px;
     background-color: #0D1821;
     color: #99a5c3;
+}
+
+.career-content-title{
+    padding: 20px;
+    margin: -35px 0px -50px 0px;
+}
+
+.career-content{
+    max-width: 800px;
+    font-size: larger;
+    padding: 20px;
+    margin: px 0px 0px 5px;
+}
+
+#career{
+    background-color: #0D1821;
+    border-radius: 10px;
 }
 
 #current{
@@ -152,8 +224,16 @@ header img{
     color: #99a5c3;
 }
 
+.current-content-title{
+    padding: 20px;
+    margin: -35px 0px -50px 0px;
+}
+
 .current-content{
-    padding: 0 20px;
+    max-width: 800px;
+    font-size: larger;
+    padding: 20px;
+    margin: px 0px 0px 5px;
 
 }
 
