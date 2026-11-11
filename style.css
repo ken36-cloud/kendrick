@@ -95,7 +95,7 @@ header section{
     justify-content: space-between;
     flex-wrap: wrap;
     border-radius: 10px;
-    background-image: url(/images/header-background-image.png);        
+    background-image: url(/Images/header-background-image.png);        
 }
 
 header section > * {
